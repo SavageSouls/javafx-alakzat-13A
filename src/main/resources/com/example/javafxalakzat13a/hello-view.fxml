@@ -30,18 +30,18 @@
                </VBox.margin></RadioButton>
             </VBox>
             <VBox prefWidth="150">
-                <RadioButton text="Négyzet">
+                <RadioButton onAction="#onNegyzetSelected" text="Négyzet">
                <toggleGroup>
                   <ToggleGroup fx:id="togglegroup_Alakzat" />
                </toggleGroup>
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin></RadioButton>
-                <RadioButton text="Kör" toggleGroup="$togglegroup_Alakzat">
+                <RadioButton onAction="#onKorSelected" text="Kör" toggleGroup="$togglegroup_Alakzat">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin></RadioButton>
-                <RadioButton text="Háromszög" toggleGroup="$togglegroup_Alakzat">
+                <RadioButton onAction="#onHaromszogSelected" text="Háromszög" toggleGroup="$togglegroup_Alakzat">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin></RadioButton>
