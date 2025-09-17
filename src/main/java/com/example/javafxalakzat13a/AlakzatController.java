@@ -1,5 +1,6 @@
 package com.example.javafxalakzat13a;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -22,7 +23,12 @@ public class AlakzatController {
     public ImageView imageview_Alakzat;
     @FXML
     public Pane pane_Alakzat;
-    public RadioButton onKekSelected;
+    @FXML public RadioButton radioPiros;
+    @FXML public RadioButton radioZold;
+    @FXML public RadioButton radioKek;
+    @FXML public RadioButton radioNegyzet;
+    @FXML public RadioButton radioKor;
+    @FXML public RadioButton radioHaromszog;
 
     @FXML
     private Label welcomeText;
@@ -60,5 +66,33 @@ public class AlakzatController {
 
     public void onHaromszogSelected(ActionEvent actionEvent) {
         imageview_Alakzat.setImage(new Image("file:icons/haromszog.png"));
+    }
+
+    public void onHozzaadClick(ActionEvent actionEvent) {
+        ObservableList<String> listviewLines = listview_ListView.getItems();
+
+        String newline = "";
+
+        if (radioPiros.isSelected()){
+            newline += "Piros, ";
+        }
+
+        if (radioZold.isSelected()){
+            newline += "Zöld, ";
+        }
+        if (radioKek.isSelected()){
+            newline += "Kék, ";
+        }
+
+        if (radioNegyzet.isSelected()) newline+= "Négyzet";
+        if (radioKor.isSelected()) newline+= "Kör";
+        if (radioHaromszog.isSelected()) newline+= "Haromszög";
+
+        //listviewLines.add("Piros, Kör");
+
+        if (!newline.isEmpty()) listviewLines.add(newline);
+
+        listview_ListView.setItems(listviewLines);
+        listview_ListView.getSelectionModel().selectLast();
     }
 }
